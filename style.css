@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #6563ff;
+}
+
+.wrapper {
+    height: 400px;
+    width: 400px;
+    padding: 25px;
+    background: #f8f8f8;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+}
+
+.card {
+    cursor: pointer;
+    position: relative;
+    perspective: 800px;
+    height: calc(100% / 4 - 10px);
+    width: calc(100% / 4 - 10px);
+    margin: 5px;
+}
+
+.view {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    user-select: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden; /* Menyembunyikan sisi belakang saat tidak terlihat */
+    transition: transform 0.25s linear;
+    border-radius: 7px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.front-view {
+    background-color: #fff;
+}
+
+.back-view {
+    transform: rotateY(180deg); /* Memutar tampilan belakang */
+    background-color: #fff; /* Atur warna latar belakang jika diperlukan */
+}
+
+.card.shake{
+    animation: shake 0.35s ease-in-out;
+}
+
+@keyframes shake {
+    0%,100%{
+        transform: translateX(0);
+    }
+    20%{
+        transform: translateX(13%);
+    }
+    40%{
+        transform: translateX(-13%);
+    }
+    60%{
+        transform: translateX(8%);
+    }
+    80%{
+        transform: translateX(-8%);
+    }
+}
+
+.card.flip .front-view {
+    transform: rotateY(180deg); /* Memutar tampilan depan saat di-hover */
+}
+
+.card.flip .back-view {
+    transform: rotateY(0); /* Menampilkan tampilan belakang saat di-hover */
+}
+
+
+.front-view span {
+    color: #6563ff;
+    font-size: 40px;
+}
+
+.back-view img {
+    max-width: 45px;
+}
+
+.info{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.score{
+    margin: 5px;
+    font-size: x-large;
+}
+
+.reset{
+    font-size: x-large;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    border: none;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+}
