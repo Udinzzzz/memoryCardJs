@@ -70,7 +70,7 @@ function showCard() {
 
     cards.forEach((card, i) => {
         let imgTag = card.querySelector('img'); // Updated to query single img element
-        imgTag.src = `/assets/img-${arr[i]}.png`;
+        imgTag.src = `assets/img-${arr[i]}.png`;
         card.classList.add('flip');
         setTimeout(() => {
             card.classList.remove('flip');
